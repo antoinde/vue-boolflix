@@ -1,11 +1,12 @@
 <template>
     <header class="row">
         
-        <div class="col-12">
-            <div>HEADER</div>
-            <input type="text"  v-model="textToSearch" @keyup.enter="sendRequest()">
-            <div>{{textToSearch}}</div>
-            <button @click="sendRequest()" >Cerca!</button>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="search-area">
+                <span>Search here: </span>
+                <input type="text"  v-model="textToSearch" @keyup.enter="sendRequest()">
+                <button @click="sendRequest()" >Cerca!</button>
+            </div>
         </div>
     </header>
 </template>
@@ -30,6 +31,11 @@ export default {
 </script>
   
 <style lang="scss" scoped>
-
+.search-area{
+    margin-top: 30px;
+}
+input{
+    margin: 0 10px;
+}
 </style>
   
