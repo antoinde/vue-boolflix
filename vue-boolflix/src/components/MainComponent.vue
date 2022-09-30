@@ -4,6 +4,7 @@
             MAIN
         </div>
         <div class="col-12">
+            <h1> FILM: </h1>
             <ul>
                 <li v-for="film in sentFilms" :key="film.id">
                     <h6> <strong>TITOLO: </strong>  {{ film.title }}</h6>
@@ -11,8 +12,25 @@
                     <div class="flag"> 
                         <strong>Lingua originale: </strong> 
                         <img :src="getFlag(film.original_language)" :alt="film.original_language" onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
+                        <span> {{film.original_language}} </span>
                     </div>
                     <p> <strong>Voto: </strong> {{ film.vote_average }}</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-12">
+            <h1> SERIE TV: </h1>
+            <ul>
+                <li v-for="serie in sentSeries" :key="serie.id">
+                    <h6> <strong>TITOLO: </strong>  {{ serie.name }}</h6>
+                    <p> <strong>Titolo originale:</strong>  {{ serie.original_name }}</p>
+                    <div class="flag"> 
+                        <strong>Lingua originale: </strong> 
+                        <img :src="getFlag(serie.original_language)" :alt="serie.original_language" onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
+                        <span> {{serie.original_language}} </span>
+                    </div>
+                    <p> <strong>Voto: </strong> {{ serie.vote_average }}</p>
                 </li>
             </ul>
         </div>
@@ -25,7 +43,8 @@
 export default {
     name: 'MainComponent',
     props: {
-        sentFilms: Array
+        sentFilms: Array,
+        sentSeries: Array
     },
     methods: {
         getFlag(initials_flag) {
