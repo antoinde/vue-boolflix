@@ -1,7 +1,9 @@
 <template>
     <header class="row">
-        
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex logo">
+            <img class="logo" src="@/assets/img/Netflix_logo.svg.png" alt="Logo Netflix">
+        </div>
+        <div class="col-6 d-flex">
             <div class="search-area">
                 <span>Search here: </span>
                 <input type="text"  v-model="textToSearch" @keyup.enter="sendRequest()">
@@ -36,6 +38,10 @@ export default {
 }
 input{
     margin: 0 10px;
+}
+.logo{
+    height: 50px;
+    margin-top: 10px;
 }
 </style>
   
