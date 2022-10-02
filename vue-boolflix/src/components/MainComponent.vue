@@ -78,13 +78,15 @@ export default {
             return string;
         },
         getStar(vote, iWantReturn){
+            // PASSA DA MAX VALUTATION 10 A MAX VALUTATION 5
             let new_vote=parseInt( Math.ceil(vote/2) );
-            console.log("NEW VOTE: ", new_vote);
-
+            // RIAZZERA L'ARRAY PER POTER RIESEGUIRE IL CALCOLO PER OGNI CARD
             this.stars=[];
+            // RIEMPI L'ARRAY STARS TANTE VOLTE QUANTE SONO LE STELLE PIENE
             for(let i=0; i<new_vote; i++) {
                 this.stars[i]='';
             }
+            // FUNZIONALITA' AGGIUNTIVA: RESTITUISCI OPPURE NO IL VOTO (1/0)
             if(iWantReturn===1){
                 return new_vote;
             }
