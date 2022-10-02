@@ -15,8 +15,9 @@
                         onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
                         <span> {{film.original_language}} </span>
                     </div>
-                    <p> <strong>VOTO: </strong> {{ getStar(film.vote_average) }} </p>
-                    <span> <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star inrow"></i> </span>
+                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(film.vote_average) }} 
+                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> 
+                    </p>
                 </li>
             </ul>
         </div>
@@ -36,8 +37,9 @@
                         onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
                         <span> {{serie.original_language}} </span>
                     </div>
-                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(serie.vote_average) }} </p>
-                    <span> <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star inrow"></i> </span>
+                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(serie.vote_average) }} 
+                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> 
+                    </p>
                 </li>
             </ul>
         </div>
@@ -79,10 +81,9 @@ export default {
 
             this.stars=[];
             for(let i=0; i<new_vote; i++) {
-                this.stars[i]='<i class="fa-solid fa-star"></i>';
+                this.stars[i]='';
             }
-            return new_vote;
-        },
+        }
     }
     
 }
@@ -92,7 +93,7 @@ export default {
 li {
     list-style-type: none;
     border: 2px solid rgb(23, 23, 23);
-    margin: 0 2px;
+    margin: 2px 2px;
     border-radius: 5px;
     padding: 8px;
 }
@@ -103,7 +104,7 @@ li {
 }
 
 .image_poster {
-    width: 220px;
+    width: 100%;
 }
 .cards {
     display: flex;
