@@ -16,7 +16,8 @@
                         <span> {{film.original_language}} </span>
                     </div>
                     <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(film.vote_average) }} 
-                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> 
+                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i>
+                        <i v-for="n in 5 - getStar(film.vote_average, 1) " :key="n" class="fa-regular fa-star"></i> 
                     </p>
                 </li>
             </ul>
@@ -37,8 +38,9 @@
                         onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
                         <span> {{serie.original_language}} </span>
                     </div>
-                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(serie.vote_average) }} 
-                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> 
+                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(serie.vote_average, 0) }} 
+                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i>
+                        <i v-for="n in 5 - getStar(serie.vote_average, 1) " :key="n" class="fa-regular fa-star"></i> 
                     </p>
                 </li>
             </ul>
@@ -54,7 +56,7 @@ export default {
     name: 'MainComponent',
     data() {
         return {
-            stars: []
+            stars: [],
         }
     },
     props: {
@@ -75,13 +77,16 @@ export default {
             console.log(string);
             return string;
         },
-        getStar(vote){
+        getStar(vote, iWantReturn){
             let new_vote=parseInt( Math.ceil(vote/2) );
             console.log("NEW VOTE: ", new_vote);
 
             this.stars=[];
             for(let i=0; i<new_vote; i++) {
                 this.stars[i]='';
+            }
+            if(iWantReturn===1){
+                return new_vote;
             }
         }
     }
