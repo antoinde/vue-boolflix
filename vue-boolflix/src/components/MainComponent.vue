@@ -77,7 +77,7 @@ export default {
             console.log(string);
             return string;
         },
-        getStar(vote, iWantReturn){
+        getStar(vote, iWantToReturn){
             // PASSA DA MAX VALUTATION 10 A MAX VALUTATION 5
             let new_vote=parseInt( Math.ceil(vote/2) );
             // RIAZZERA L'ARRAY PER POTER RIESEGUIRE IL CALCOLO PER OGNI CARD
@@ -87,7 +87,7 @@ export default {
                 this.stars[i]='';
             }
             // FUNZIONALITA' AGGIUNTIVA: RESTITUISCI OPPURE NO IL VOTO (1/0)
-            if(iWantReturn===1){
+            if(iWantToReturn===1){
                 return new_vote;
             }
         }
