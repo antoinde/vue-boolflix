@@ -15,9 +15,9 @@
                         onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
                         <span> {{film.original_language}} </span>
                     </div>
-                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(film.vote_average) }} 
-                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i>
-                        <i v-for="n in 5 - getStar(film.vote_average, 1) " :key="n" class="fa-regular fa-star"></i> 
+                    <p class="card-vote"> <strong>VOTO: </strong>  
+                        <!-- <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> -->
+                        <i v-for="n in 5" :key="n" class="fa-star" :class="( n <= film.vote_average/2 )?'fa-solid':'fa-regular'"></i>
                     </p>
                 </li>
             </ul>
@@ -38,9 +38,9 @@
                         onerror="this.src = '//www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg'"> 
                         <span> {{serie.original_language}} </span>
                     </div>
-                    <p class="card-vote"> <strong>VOTO: </strong> {{ getStar(serie.vote_average, 0) }} 
-                        <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i>
-                        <i v-for="n in 5 - getStar(serie.vote_average, 1) " :key="n" class="fa-regular fa-star"></i> 
+                    <p class="card-vote"> <strong>VOTO: </strong> 
+                        <!-- <i v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></i> -->
+                        <i v-for="n in 5" :key="n" class="fa-star" :class="( n <= serie.vote_average/2 )?'fa-solid':'fa-regular'"></i> 
                     </p>
                 </li>
             </ul>
