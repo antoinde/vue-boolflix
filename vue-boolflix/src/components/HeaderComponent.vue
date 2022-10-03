@@ -5,7 +5,7 @@
         </div>
         <div class="col-6 d-flex justify-content-end">
             <div class="search-area">
-                <span>Search here: </span>
+                <span>Cerca qui: </span>
                 <input type="text"  v-model="textToSearch" @keyup.enter="sendRequest()">
                 <button @click="sendRequest()" >Cerca!</button>
             </div>

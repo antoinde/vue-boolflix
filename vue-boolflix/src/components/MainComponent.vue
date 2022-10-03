@@ -65,16 +65,16 @@ export default {
     },
     methods: {
         getFlag(initials_flag) {
-            console.log(initials_flag);
+            // console.log(initials_flag);
             if(initials_flag==='en') initials_flag='gb';        
             
             let string = 'https://www.bandiere-mondo.it/data/flags/w702/' + initials_flag + '.webp';
-            console.log(string);
+            // console.log(string);
             return string;
         },
         getPathImage(path) {
             const string = 'https://image.tmdb.org/t/p/w500' + path;
-            console.log(string);
+            // console.log(string);
             return string;
         },
         getStar(vote, iWantToReturn){
@@ -126,6 +126,8 @@ li {
         color: grey;
     }
 }
+.card:hover {
 
+}
 </style>
   
