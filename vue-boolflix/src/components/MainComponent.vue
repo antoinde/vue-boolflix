@@ -31,6 +31,7 @@
                 <li class="card" v-for="serie in sentSeries" :key="serie.id">
                     <img :src="getPathImage(serie.poster_path)" alt="cover series image" class="image_poster"
                         onerror="src='//lightwidget.com/wp-content/uploads/local-file-not-found.png'">
+                    <p class="card-overview"> {{ serie.overview }} </p>
                     <h6 class="card-title"> <strong>TITOLO: </strong> {{ serie.name }}</h6>
                     <p class="card-original-title"> <strong>ORIGINAL:</strong> {{ serie.original_name }}</p>
                     <div class="card-language flag">
@@ -155,7 +156,6 @@ li {
     display: block;
 
 }
-
 .card-overview {
     height: 320px;
     overflow-y: auto;
